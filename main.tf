@@ -51,7 +51,7 @@ resource "null_resource" "set-hostname" {
       password = "DevOps321"
     }
     inline = [
-      "set-hostname ${var.components[count.index]}"
+      "set-hostname -skip-apply ${var.components[count.index]}"
     ]
   }
 }
