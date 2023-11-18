@@ -21,6 +21,6 @@ instance_class = "db.t3.medium"
 
 
 # Docdb
-docdb_instance_count = ""
-docdb_instance_class = ""
+docdb_instance_count = "db.t3.medium"
+docdb_instance_class = 1
 
