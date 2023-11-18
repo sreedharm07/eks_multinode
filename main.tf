@@ -29,11 +29,12 @@ module "mysql" {
 module "docdb" {
   source = "git::https://github.com/raghudevopsb75/tf-module-docdb.git"
 
-  component      = "docdb"
-  env            = var.env
-  subnets        = module.vpc.db_subnets
-  vpc_cidr       = var.vpc_cidr
-  vpc_id         = module.vpc.vpc_id
-  instance_class = var.instance_class
-  kms_key_id     = var.kms_key_id
+  component            = "docdb"
+  env                  = var.env
+  subnets              = module.vpc.db_subnets
+  vpc_cidr             = var.vpc_cidr
+  vpc_id               = module.vpc.vpc_id
+  kms_key_id           = var.kms_key_id
+  docdb_instance_count = var.docdb_instance_count
+  docdb_instance_class = var.docdb_instance_class
 }

@@ -20,3 +20,7 @@ account_no             = "739561048503"
 instance_class = "db.t3.medium"
 
 
+# Docdb
+docdb_instance_count = ""
+docdb_instance_class = ""
+
