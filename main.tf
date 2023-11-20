@@ -77,5 +77,6 @@ module "ms-components" {
   instance_count  = each.value["count"]
   prometheus_cidr = var.prometheus_cidr
   bastion_node_cidr    = var.bastion_node_cidr
+  instance_type   = each.value["instance_type"]
 }
 

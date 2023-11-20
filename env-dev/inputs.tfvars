@@ -35,24 +35,31 @@ rabbitmq_instance_type = "t3.micro"
 components = {
   frontend = {
     count = 1
+    instance_type = "t3.micro"
   }
   catalogue = {
     count = 1
+    instance_type = "t3.micro"
   }
   cart = {
     count = 1
+    instance_type = "t3.micro"
   }
   user = {
     count = 1
+    instance_type = "t3.micro"
   }
   shipping = {
     count = 1
+    instance_type = "t3.micro"
   }
   payment = {
     count = 1
+    instance_type = "t3.micro"
   }
   dispatch = {
     count = 1
+    instance_type = "t3.micro"
   }
 }
 
