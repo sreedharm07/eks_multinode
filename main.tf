@@ -38,3 +38,17 @@ module "docdb" {
   docdb_instance_count = var.docdb_instance_count
   docdb_instance_class = var.docdb_instance_class
 }
+
+module "elasticache" {
+  source = "git::https://github.com/raghudevopsb75/tf-module-elasticache.git"
+
+  component            = "elasticache"
+  env                  = var.env
+  subnets              = module.vpc.db_subnets
+  vpc_cidr             = var.vpc_cidr
+  vpc_id               = module.vpc.vpc_id
+  kms_key_id           = var.kms_key_id
+  ec_node_type         = var.ec_node_type
+  ec_node_count        = var.ec_node_count
+}
+

@@ -24,3 +24,6 @@ instance_class = "db.t3.medium"
 docdb_instance_count = 1
 docdb_instance_class = "db.t3.medium"
 
+## Elasticache
+ec_node_type  = "cache.t3.micro"
+ec_node_count =  1
