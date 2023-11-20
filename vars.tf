@@ -16,4 +16,6 @@ variable "docdb_instance_class" {}
 variable "ec_node_type" {}
 variable "ec_node_count" {}
 variable "rabbitmq_instance_type" {}
-
+variable "components" {}
+variable "bastion_node_cidr" {}
+variable "prometheus_cidr" {}
