@@ -81,19 +81,18 @@ module "ms-components" {
   app_port          = each.value["app_port"]
 }
 
-#module "alb" {
-#  source            = "git::https://github.com/raghudevopsb75/tf-module-alb.git"
-#  for_each          = var.alb
-#  alb_sg_allow_cidr = var.vpc_cidr
-#  alb_type          = each.key
-#  env               = var.env
-#  internal          = each.value["internal"]
-#  subnets           = module.vpc.app_subnets
-#  vpc_id            = module.vpc.vpc_id
-#  dns_name          = "backend-${var.env}.rdevopsb73.online"
-#  zone_id           = "Z09059901XRPHNYMGLMJ4"
-#  tg_arn            = module.backend.tg_arn
-#}
+module "alb" {
+  source            = "git::https://github.com/raghudevopsb75/tf-module-alb.git"
+  for_each          = var.alb
+  alb_sg_allow_cidr = var.vpc_cidr
+  alb_type          = each.key
+  env               = var.env
+  internal          = each.value["internal"]
+  subnets           = module.vpc.app_subnets
+  vpc_id            = module.vpc.vpc_id
+  dns_name          = "backend-${var.env}.rdevopsb73.online"
+  zone_id           = "Z09059901XRPHNYMGLMJ4"
+}
 
 output "ms" {
   value = module.ms-components
