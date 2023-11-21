@@ -95,3 +95,6 @@ module "ms-components" {
 #  tg_arn            = module.backend.tg_arn
 #}
 
+output "ms" {
+  value = module.ms-components
+}
