@@ -79,6 +79,8 @@ module "ms-components" {
   bastion_node_cidr = var.bastion_node_cidr
   instance_type     = each.value["instance_type"]
   app_port          = each.value["app_port"]
+  alb_dns_name      = lookup(module.alb, each.value["lb_type"], null)
+  zone_id           = "Z09059901XRPHNYMGLMJ4"
 }
 
 module "alb" {
@@ -92,10 +94,10 @@ module "alb" {
   vpc_id            = module.vpc.vpc_id
   dns_name          = "backend-${var.env}.rdevopsb73.online"
   zone_id           = "Z09059901XRPHNYMGLMJ4"
-  port            = each.value["port"]
-  protocol        = each.value["protocol"]
-  ssl_policy      = each.value["ssl_policy"]
-  certificate_arn = each.value["certificate_arn"]
+  port              = each.value["port"]
+  protocol          = each.value["protocol"]
+  ssl_policy        = each.value["ssl_policy"]
+  certificate_arn   = each.value["certificate_arn"]
 }
 
 output "alb" {
