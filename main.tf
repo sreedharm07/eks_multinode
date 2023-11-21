@@ -67,19 +67,31 @@ module "rabbitmq" {
 module "ms-components" {
   source = "git::https://github.com/raghudevopsb75/tf-module-app.git"
 
-  for_each        = var.components
-  component       = each.key
-  env             = var.env
-  subnets         = module.vpc.db_subnets
-  vpc_cidr        = var.vpc_cidr
-  vpc_id          = module.vpc.vpc_id
-  kms_key_id      = var.kms_key_id
-  instance_count  = each.value["count"]
-  prometheus_cidr = var.prometheus_cidr
-  bastion_node_cidr    = var.bastion_node_cidr
-  instance_type   = each.value["instance_type"]
-  app_port        = each.value["app_port"]
+  for_each          = var.components
+  component         = each.key
+  env               = var.env
+  subnets           = module.vpc.db_subnets
+  vpc_cidr          = var.vpc_cidr
+  vpc_id            = module.vpc.vpc_id
+  kms_key_id        = var.kms_key_id
+  instance_count    = each.value["count"]
+  prometheus_cidr   = var.prometheus_cidr
+  bastion_node_cidr = var.bastion_node_cidr
+  instance_type     = each.value["instance_type"]
+  app_port          = each.value["app_port"]
 }
 
-
+#module "alb" {
+#  source            = "git::https://github.com/raghudevopsb75/tf-module-alb.git"
+#  for_each          = var.alb
+#  alb_sg_allow_cidr = var.vpc_cidr
+#  alb_type          = each.key
+#  env               = var.env
+#  internal          = each.value["internal"]
+#  subnets           = module.vpc.app_subnets
+#  vpc_id            = module.vpc.vpc_id
+#  dns_name          = "backend-${var.env}.rdevopsb73.online"
+#  zone_id           = "Z09059901XRPHNYMGLMJ4"
+#  tg_arn            = module.backend.tg_arn
+#}
 

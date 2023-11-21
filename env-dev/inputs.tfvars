@@ -34,41 +34,49 @@ rabbitmq_instance_type = "t3.micro"
 
 components = {
   frontend = {
-    count = 1
+    count         = 1
     instance_type = "t3.micro"
-    app_port = 80
+    app_port      = 80
   }
   catalogue = {
-    count = 1
+    count         = 1
     instance_type = "t3.micro"
-    app_port = 8080
+    app_port      = 8080
   }
   cart = {
-    count = 1
+    count         = 1
     instance_type = "t3.micro"
-    app_port = 8080
+    app_port      = 8080
   }
   user = {
-    count = 1
+    count         = 1
     instance_type = "t3.micro"
-    app_port = 8080
+    app_port      = 8080
   }
   shipping = {
-    count = 1
+    count         = 1
     instance_type = "t3.micro"
-    app_port = 8080
+    app_port      = 8080
   }
   payment = {
-    count = 1
+    count         = 1
     instance_type = "t3.micro"
-    app_port = 8080
+    app_port      = 8080
   }
   dispatch = {
-    count = 1
+    count         = 1
     instance_type = "t3.micro"
-    app_port = 8080
+    app_port      = 8080
   }
 }
 
 
+lab = {
+  public = {
+    internal = false
+  }
+  private = {
+    internal = true
+  }
+}
 

@@ -19,3 +19,4 @@ variable "rabbitmq_instance_type" {}
 variable "components" {}
 variable "bastion_node_cidr" {}
 variable "prometheus_cidr" {}
+variable "alb" {}
