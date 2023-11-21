@@ -92,10 +92,8 @@ module "alb" {
   alb_type          = each.key
   env               = var.env
   internal          = each.value["internal"]
-  subnets           = module.vpc.app_subnets
+  subnets           = each.key == "private" ? module.vpc.app_subnets : module.vpc.public_subnets
   vpc_id            = module.vpc.vpc_id
-  dns_name          = "backend-${var.env}.rdevopsb73.online"
-  zone_id           = "Z09059901XRPHNYMGLMJ4"
   port              = each.value["port"]
   protocol          = each.value["protocol"]
   ssl_policy        = each.value["ssl_policy"]
