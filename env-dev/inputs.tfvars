@@ -71,7 +71,7 @@ components = {
 }
 
 
-lab = {
+alb = {
   public = {
     internal = false
   }
