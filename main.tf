@@ -88,7 +88,7 @@ module "ms-components" {
 module "alb" {
   source            = "git::https://github.com/raghudevopsb75/tf-module-alb.git"
   for_each          = var.alb
-  alb_sg_allow_cidr = var.vpc_cidr
+  alb_sg_allow_cidr = each.value["alb_sg_allow_cidr"]
   alb_type          = each.key
   env               = var.env
   internal          = each.value["internal"]

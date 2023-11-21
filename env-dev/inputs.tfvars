@@ -87,18 +87,20 @@ components = {
 
 alb = {
   public = {
-    internal        = false
-    port            = 443
-    protocol        = "HTTPS"
-    ssl_policy      = "ELBSecurityPolicy-2016-08"
-    certificate_arn = "arn:aws:acm:us-east-1:739561048503:certificate/6414e7b8-1da5-4a92-a3a8-d66334ae5696"
+    internal          = false
+    port              = 443
+    protocol          = "HTTPS"
+    ssl_policy        = "ELBSecurityPolicy-2016-08"
+    certificate_arn   = "arn:aws:acm:us-east-1:739561048503:certificate/6414e7b8-1da5-4a92-a3a8-d66334ae5696"
+    alb_sg_allow_cidr = "0.0.0.0/0"
   }
   private = {
-    internal        = true
-    port            = 80
-    protocol        = "HTTP"
-    ssl_policy      = null
-    certificate_arn = null
+    internal          = true
+    port              = 80
+    protocol          = "HTTP"
+    ssl_policy        = null
+    certificate_arn   = null
+    alb_sg_allow_cidr = "10.0.0.0/16"
   }
 }
 
