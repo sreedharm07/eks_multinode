@@ -79,7 +79,7 @@ module "ms-components" {
   bastion_node_cidr = var.bastion_node_cidr
   instance_type     = each.value["instance_type"]
   app_port          = each.value["app_port"]
-  alb_dns_name      = lookup(module.alb, each.value["lb_type"], null)
+  alb_dns_name      = lookup(lookup(module.alb, each.value["lb_type"], null), "alb_dns_name", null)
   zone_id           = "Z09059901XRPHNYMGLMJ4"
 }
 
