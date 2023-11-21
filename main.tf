@@ -97,3 +97,7 @@ module "alb" {
 output "ms" {
   value = module.ms-components
 }
+
+output "alb" {
+  value = module.alb
+}
