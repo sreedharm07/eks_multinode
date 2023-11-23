@@ -62,6 +62,7 @@ module "rabbitmq" {
   vpc_id                 = module.vpc.vpc_id
   kms_key_id             = var.kms_key_id
   rabbitmq_instance_type = var.rabbitmq_instance_type
+  zone_id                = "Z09059901XRPHNYMGLMJ4"
 }
 
 module "ms-components" {
