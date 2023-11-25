@@ -63,7 +63,7 @@ components = {
   }
   shipping = {
     count                  = 2
-    instance_type          = "t3.micro"
+    instance_type          = "t3.medium"
     app_port               = 8080
     lb_type                = "private"
     listener_rule_priority = 103
