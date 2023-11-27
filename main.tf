@@ -105,6 +105,12 @@ module "alb" {
   certificate_arn   = each.value["certificate_arn"]
 }
 
-output "alb" {
-  value = module.alb
+resource "aws_instance" "load-runner" {
+  ami                    = "ami-03265a0778a880afb"
+  instance_type          = "t3.medium"
+  vpc_security_group_ids = ["sg-07afa043b24022e4e"]
+  tags = {
+    Name = "load-runner"
+  }
 }
+
