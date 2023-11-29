@@ -40,41 +40,41 @@ components = {
     lb_type                = "public"
     listener_rule_priority = 100
   }
-#  catalogue = {
-#    count                  = 2
-#    instance_type          = "t3.micro"
-#    app_port               = 8080
-#    lb_type                = "private"
-#    listener_rule_priority = 100
-#  }
-#  cart = {
-#    count                  = 2
-#    instance_type          = "t3.micro"
-#    app_port               = 8080
-#    lb_type                = "private"
-#    listener_rule_priority = 101
-#  }
-#  user = {
-#    count                  = 2
-#    instance_type          = "t3.micro"
-#    app_port               = 8080
-#    lb_type                = "private"
-#    listener_rule_priority = 102
-#  }
-#  shipping = {
-#    count                  = 2
-#    instance_type          = "t3.medium"
-#    app_port               = 8080
-#    lb_type                = "private"
-#    listener_rule_priority = 103
-#  }
-#  payment = {
-#    count                  = 2
-#    instance_type          = "t3.micro"
-#    app_port               = 8080
-#    lb_type                = "private"
-#    listener_rule_priority = 104
-#  }
+  catalogue = {
+    count                  = 2
+    instance_type          = "t3.micro"
+    app_port               = 8080
+    lb_type                = "private"
+    listener_rule_priority = 100
+  }
+  cart = {
+    count                  = 2
+    instance_type          = "t3.micro"
+    app_port               = 8080
+    lb_type                = "private"
+    listener_rule_priority = 101
+  }
+  user = {
+    count                  = 2
+    instance_type          = "t3.micro"
+    app_port               = 8080
+    lb_type                = "private"
+    listener_rule_priority = 102
+  }
+  shipping = {
+    count                  = 2
+    instance_type          = "t3.medium"
+    app_port               = 8080
+    lb_type                = "private"
+    listener_rule_priority = 103
+  }
+  payment = {
+    count                  = 2
+    instance_type          = "t3.micro"
+    app_port               = 8080
+    lb_type                = "private"
+    listener_rule_priority = 104
+  }
 #  dispatch = {
 #    count                  = 2
 #    instance_type          = "t3.micro"
