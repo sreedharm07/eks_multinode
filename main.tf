@@ -68,7 +68,7 @@ module "vpc" {
 
 module "ms-components" {
 
-  depends_on = [module.docdb, module.mysql, module.elasticache, module.rabbitmq]
+  //depends_on = [module.docdb, module.mysql, module.elasticache, module.rabbitmq]
 
   source = "git::https://github.com/raghudevopsb75/tf-module-app.git"
 
