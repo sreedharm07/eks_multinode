@@ -14,57 +14,57 @@ module "vpc" {
 }
 
 
-module "mysql" {
-  source = "git::https://github.com/raghudevopsb75/tf-module-rds.git"
-
-  component      = "mysql"
-  env            = var.env
-  subnets        = module.vpc.db_subnets
-  vpc_cidr       = var.vpc_cidr
-  vpc_id         = module.vpc.vpc_id
-  instance_class = var.instance_class
-  kms_key_id     = var.kms_key_id
-}
-
-module "docdb" {
-  source = "git::https://github.com/raghudevopsb75/tf-module-docdb.git"
-
-  component            = "docdb"
-  env                  = var.env
-  subnets              = module.vpc.db_subnets
-  vpc_cidr             = var.vpc_cidr
-  vpc_id               = module.vpc.vpc_id
-  kms_key_id           = var.kms_key_id
-  docdb_instance_count = var.docdb_instance_count
-  docdb_instance_class = var.docdb_instance_class
-}
-
-module "elasticache" {
-  source = "git::https://github.com/raghudevopsb75/tf-module-elasticache.git"
-
-  component     = "elasticache"
-  env           = var.env
-  subnets       = module.vpc.db_subnets
-  vpc_cidr      = var.vpc_cidr
-  vpc_id        = module.vpc.vpc_id
-  kms_key_id    = var.kms_key_id
-  ec_node_type  = var.ec_node_type
-  ec_node_count = var.ec_node_count
-}
-
-module "rabbitmq" {
-  source = "git::https://github.com/raghudevopsb75/tf-module-rabbitmq.git"
-
-  component              = "rabbitmq"
-  env                    = var.env
-  subnets                = module.vpc.db_subnets
-  vpc_cidr               = var.vpc_cidr
-  vpc_id                 = module.vpc.vpc_id
-  kms_key_id             = var.kms_key_id
-  rabbitmq_instance_type = var.rabbitmq_instance_type
-  zone_id                = "Z09059901XRPHNYMGLMJ4"
-  bastion_node_cidr      = var.bastion_node_cidr
-}
+#module "mysql" {
+#  source = "git::https://github.com/raghudevopsb75/tf-module-rds.git"
+#
+#  component      = "mysql"
+#  env            = var.env
+#  subnets        = module.vpc.db_subnets
+#  vpc_cidr       = var.vpc_cidr
+#  vpc_id         = module.vpc.vpc_id
+#  instance_class = var.instance_class
+#  kms_key_id     = var.kms_key_id
+#}
+#
+#module "docdb" {
+#  source = "git::https://github.com/raghudevopsb75/tf-module-docdb.git"
+#
+#  component            = "docdb"
+#  env                  = var.env
+#  subnets              = module.vpc.db_subnets
+#  vpc_cidr             = var.vpc_cidr
+#  vpc_id               = module.vpc.vpc_id
+#  kms_key_id           = var.kms_key_id
+#  docdb_instance_count = var.docdb_instance_count
+#  docdb_instance_class = var.docdb_instance_class
+#}
+#
+#module "elasticache" {
+#  source = "git::https://github.com/raghudevopsb75/tf-module-elasticache.git"
+#
+#  component     = "elasticache"
+#  env           = var.env
+#  subnets       = module.vpc.db_subnets
+#  vpc_cidr      = var.vpc_cidr
+#  vpc_id        = module.vpc.vpc_id
+#  kms_key_id    = var.kms_key_id
+#  ec_node_type  = var.ec_node_type
+#  ec_node_count = var.ec_node_count
+#}
+#
+#module "rabbitmq" {
+#  source = "git::https://github.com/raghudevopsb75/tf-module-rabbitmq.git"
+#
+#  component              = "rabbitmq"
+#  env                    = var.env
+#  subnets                = module.vpc.db_subnets
+#  vpc_cidr               = var.vpc_cidr
+#  vpc_id                 = module.vpc.vpc_id
+#  kms_key_id             = var.kms_key_id
+#  rabbitmq_instance_type = var.rabbitmq_instance_type
+#  zone_id                = "Z09059901XRPHNYMGLMJ4"
+#  bastion_node_cidr      = var.bastion_node_cidr
+#}
 
 module "ms-components" {
 
@@ -105,25 +105,25 @@ module "alb" {
   certificate_arn   = each.value["certificate_arn"]
 }
 
-resource "aws_instance" "load-runner" {
-  ami                    = "ami-03265a0778a880afb"
-  instance_type          = "t3.medium"
-  vpc_security_group_ids = ["sg-07afa043b24022e4e"]
-  tags = {
-    Name = "load-runner"
-  }
-
-  provisioner "remote-exec" {
-    connection {
-      host     = self.private_ip
-      user     = "root"
-      password = "DevOps321"
-    }
-    inline = [
-      "curl -s https://raw.githubusercontent.com/linuxautomations/labautomation/master/tools/docker/install.sh | sudo bash",
-      "docker pull robotshop/rs-load:latest"
-    ]
-  }
-
-}
+#resource "aws_instance" "load-runner" {
+#  ami                    = "ami-03265a0778a880afb"
+#  instance_type          = "t3.medium"
+#  vpc_security_group_ids = ["sg-07afa043b24022e4e"]
+#  tags = {
+#    Name = "load-runner"
+#  }
+#
+#  provisioner "remote-exec" {
+#    connection {
+#      host     = self.private_ip
+#      user     = "root"
+#      password = "DevOps321"
+#    }
+#    inline = [
+#      "curl -s https://raw.githubusercontent.com/linuxautomations/labautomation/master/tools/docker/install.sh | sudo bash",
+#      "docker pull robotshop/rs-load:latest"
+#    ]
+#  }
+#
+#}
 
