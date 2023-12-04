@@ -75,7 +75,7 @@ module "rabbitmq" {
 #  for_each               = var.components
 #  component              = each.key
 #  env                    = var.env
-#  subnets                = module.vpc.db_subnets
+#  subnets                = module.vpc.app_subnets
 #  vpc_cidr               = var.vpc_cidr
 #  vpc_id                 = module.vpc.vpc_id
 #  kms_key_id             = var.kms_key_id
@@ -126,4 +126,15 @@ module "rabbitmq" {
 #  }
 #
 #}
+
+module "eks" {
+  source = "git::https://github.com/raghudevopsb75/tf-module-eks.git"
+
+  project_name   = var.project_name
+  env            = var.env
+  subnet_ids     = module.vpc.app_subnets
+  instance_types = var.eks_instance_types
+  node_count     = var.eks_node_count
+}
+
 
