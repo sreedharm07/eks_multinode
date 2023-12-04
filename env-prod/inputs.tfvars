@@ -104,5 +104,5 @@ alb = {
   }
 }
 
-eks_instance_types = "t3.large"
+eks_instance_types = ["t3.large"]
 eks_node_count = 3
