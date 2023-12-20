@@ -1,3 +1,3 @@
-bucket = "terraform-b75"
-key    = "roboshop-project/dev/terraform.tfstate"
+bucket = "statefile007"
+key    = "statefile007/dev/terraform.tfstate"
 region = "us-east-1"
